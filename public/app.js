@@ -6,7 +6,7 @@ $(function () {
   dyn_form_html = "<form " + _.inject({
     id:     "form-dyn",
     target: "iframe-dyn-post",
-    action: "http://iframe-widget-test-3.urtak.is/iframe-xdomain",
+    action: "http://iframe-widget-test-3.urtak.is:3000/iframe-xdomain",
     method: "POST"
   }, function (memo, v, k) {
     return memo.concat([k + "=\"" + v + "\""]);
@@ -18,14 +18,14 @@ $(function () {
   dyn_form = $(dyn_form_html);
   dyn_iframe_post = $("<iframe>", {
     name:        "iframe-dyn-post",
-    "data-next": "http://iframe-widget-test-3.urtak.is/iframe-xdomain2",
+    "data-next": "http://iframe-widget-test-3.urtak.is:3000/iframe-xdomain2",
     border:      "1px"
   });
   dyn_iframe_get = $("<iframe>", {
     name:        "iframe-dyn-get",
-    "data-next": "http://iframe-widget-test-4.urtak.is/iframe-xdomain2",
+    "data-next": "http://iframe-widget-test-4.urtak.is:3000/iframe-xdomain2",
     border:      "1px",
-    src:         "http://iframe-widget-test-4.urtak.is/iframe-xdomain?token=" + token
+    src:         "http://iframe-widget-test-4.urtak.is:3000/iframe-xdomain?token=" + token
   });
 
   $("body").append(dyn_form);
@@ -34,6 +34,7 @@ $(function () {
 
   // Submit forms to load POST iframes
   $("#form").submit();
+  $("#form-same-domain").submit();
   dyn_form.submit();
 
   setTimeout(function () {

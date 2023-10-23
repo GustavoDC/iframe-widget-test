@@ -1,0 +1,25 @@
+{
+  "name": "iframe-widget-test-js",
+  "version": "1.0.0",
+  "description": "This is a proof-of-concept for using the post-to-iframe method of setting\r cookies for x-domain iframe requests. Facebook uses this method for iframe\r canvas page apps.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GustavoDC/iframe-widget-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GustavoDC/iframe-widget-test/issues"
+  },
+  "homepage": "https://github.com/GustavoDC/iframe-widget-test#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}

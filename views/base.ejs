@@ -26,15 +26,15 @@
 
   <h1>iframe widget test</h1>
   <h2>random token:</h2>
-  <p id="token"><%= @token %></p>
+  <p id="token"><%= token %></p>
 
   <div class="container">
     <h2>x-domain iframe loaded via GET request</h2>
     <iframe
       name="iframe-get"
       border="1px"
-      src="http://iframe-widget-test-1.urtak.is/iframe-xdomain?token=<%= @token %>"
-      data-next="http://iframe-widget-test-1.urtak.is/iframe-xdomain2"
+      src="http://iframe-widget-test-1.urtak.is:3000/iframe-xdomain?token=<%= token %>"
+      data-next="http://iframe-widget-test-1.urtak.is:3000/iframe-xdomain2"
     ></iframe>
   </div>
 
@@ -43,7 +43,16 @@
     <iframe
       name="iframe-post"
       border="1px"
-      data-next="http://iframe-widget-test-2.urtak.is/iframe-xdomain2"
+      data-next="http://iframe-widget-test-2.urtak.is:3000/iframe-xdomain2"
+    ></iframe>
+  </div>
+
+  <div class="container">
+    <h2>same-domain iframe loaded via POST request</h2>
+    <iframe
+      name="iframe-post-same-domain"
+      border="1px"
+      data-next="http://iframe-widget-test-base.urtak.com:3000/iframe-xdomain2"
     ></iframe>
   </div>
 
@@ -58,12 +67,21 @@
   </div>
 
   <form
-    id="form"
-    target="iframe-post"
-    action="http://iframe-widget-test-2.urtak.is/iframe-xdomain"
+    id="form-same-domain"
+    target="iframe-post-same-domain"
+    action="http://iframe-widget-test-base.urtak.com:3000/iframe-xdomain"
     method="POST"
   >
-    <input type="hidden" value="<%= @token %>" name="token">
+    <input type="hidden" value="<%= token %>" name="token">
+  </form>
+
+  <form
+    id="form"
+    target="iframe-post"
+    action="http://iframe-widget-test-2.urtak.is:3000/iframe-xdomain"
+    method="POST"
+  >
+    <input type="hidden" value="<%= token %>" name="token">
   </form>
 </body>
 </html>

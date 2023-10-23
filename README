@@ -1,8 +1,10 @@
+This is a fork of: https://github.com/agibralter/iframe-widget-test/
+
 This is a proof-of-concept for using the post-to-iframe method of setting
 cookies for x-domain iframe requests. Facebook uses this method for iframe
 canvas page apps.
 
-See the images in screenshots/ to see how this works in browesrs.
+See the images in screenshots/ to see how this works in browsers.
 
 Basically what happens is we request a page on the iframe-widget-test-base
 domain which generates a random token. Then with JS on page load, we submit
@@ -29,25 +31,9 @@ This test requires entries in /etc/hosts; e.g.:
     127.0.0.1 iframe-widget-test-3.urtak.is
     127.0.0.1 iframe-widget-test-4.urtak.is
 
-Run with shotgun: `bundle exec shotgun`.
 
-**Also, somehow, you'll need to forward requests to port 80 to 9393 (for use
-with shotgun).**
+Run with:
 
-Navigate to http://iframe-widget-test-base.urtak.is/ in your browser.
+node index.js
 
-Currently the post-to-iframe technique works in:
-- FF3+
-- IE6+
-- Chrome (every version I've tried...)
-- Opera (9+ I think...)
-- Safari (before v6)
-- mobile Safari (before iOS v6)
-
-Safari 6+ and mobile Safari in iOS 6+ threw a wrench in the whole technique
-though. It looks like localStorage works in cross-domain iframes, though, so
-that may provide a work around for the future (requires application
-rearchitecting).
-
-Chrome with "block third party cookies and site data" does not even allow
-localStorage.
+Navigate to http://iframe-widget-test-base.urtak.is:3000 in your browser.
